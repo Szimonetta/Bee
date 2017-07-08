@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by Szimonetta (http://jsbin.com/mokiso/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<canvas id="myCanvas" height="300" width="450" style="border: 1px solid black"></canvas>
+<script id="jsbin-javascript">
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+
+var x = 90;
+var y = 60;
+var a = 50;
+var r = a*Math.sqrt(3)/2;
+
+function bee(x, y, fill){
+  context.beginPath();
+  context.fillStyle = 'orange';
+  context.strokeStyle = 'orange';
+  context.beginPath();
+  context.moveTo(x,y);
+  context.lineTo(x+a,y)
+  context.lineTo(x+a*1.5,y+r);
+  context.lineTo(x+a,y+r*2);
+  context.lineTo(x,y+r*2);
+  context.lineTo(x-a/2,y+r);
+  context.lineTo(x,y);
+  context.stroke();
+  fill ? context.fill() : context.stroke();
+}
+
+bee(80, 60, false);
+bee(160, 15, false);
+bee(160, 105, false);
+bee(240, 60, false);
+bee(240, 150, true);
+bee(160, 195, false);
+bee(80, 150, false);
+
+</script>
+</body>
+</html>
